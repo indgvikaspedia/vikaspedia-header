@@ -99,7 +99,7 @@ const Header = props => {
         <div className="header">
           <style>{`@media print {.header{display: none;}}`}</style>
           <div className="hide-for-mob">
-            <Row className="headerRow headerSize">
+            <Row className="headerRow headerSize no-gutters">
               <Col md={2}>
                 <Link>
                 <div className="home" 
@@ -145,8 +145,8 @@ const Header = props => {
                 )} */}
               </Col>
               <Col md={10}>
-                <Row className="headerRow1">
-                  <Col md={4} sm={3} className="lang_align">
+                <div className="headerRow1 d-flex justify-content-between">
+                  <div className="lang_align">
                     <a
                       href={site_url.EN_URL}
                       title="English"
@@ -185,19 +185,19 @@ const Header = props => {
                     <a
                       href={site_url.ML_URL}
                       title="Malyalam"
-                      className="headerRow2 alignText hide"
+                      className="headerRow2 alignText"
                     >
                       മലയാളം
                     </a>
-                    <a href={site_url.TA_URL} title="Tamil" className="headerRow2 alignText hide">
+                    <a href={site_url.TA_URL} title="Tamil" className="headerRow2 alignText">
                       தமிழ்
                     </a>
-                    <a href={site_url.BN_URL} title="Bengali" className="headerRow2 hide">
+                    <a href={site_url.BN_URL} title="Bengali" className="headerRow2 alignText">
                       বাংলা
                     </a>
-                  </Col>
+                  </div>
 
-                  <Col md={3} sm={2}>
+                  <div className="position-relative marqParent">
                     <div className="marq" title="Click to view other languages" id="searchLang">
                       {/*Uses of hover*/}
                       <marquee className="alignTextMarq">
@@ -206,12 +206,38 @@ const Header = props => {
                         ଓରିୟା &nbsp; ਪੰਜਾਬੀ &nbsp; संस्कृत &nbsp; தமிழ்&nbsp; తెలుగు &nbsp; ردو
                       </marquee>
                     </div>
-                  </Col>
-                  <Col md={5} sm={6} className="alignImage loginAlign hideInput">
-                    <a href="/register" className="headerRow2  alignText landscape">Register</a>
-                            <a href="#loginform" className="headerRow2 contentAlign alignText"> Login</a>
+                  </div>
+                  <div className="alignImage hideInput text-right">
+                    <div className="d-inline-block" style={{width:'150px'}}>
+                    <Form
+                      onSubmit={e => {
+                        // searchSubmit(e);
+                      }}
+                    >
+                      <FormControl
+                        id="portalSearch"
+                        // ref={searchBoxRef}
+                        // onClick={handleClickInside}
+                        type="text"
+                        // value="form"
+                        // value={searchTxt}
+                        placeholder={_lgn != null ? _lgn.search_within_portal : ''}
+                        // onChange={onSearchChange}
+                        // onKeyUp={detectSpacePresent}
+                        className="mr-sm-2 main-searchbar"
+                      />
+                      <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                    </Form>
+                    <div className="searchResult" 
+                    // ref={myRef} 
+                    // onClick={handleClickInside}
+                    >
+                      {/* {clickedOutside ? '' : displaySearchResultBox(searchTxt, isSearchEnter)} */}
+                    </div>
+                    </div>
+                    
 
-                    <Dropdown>
+                    <Dropdown className='d-inline-block mx-2'>
                       <Dropdown.Toggle
                         className="fontIcon accessbility-options"
                         style={{
@@ -259,6 +285,11 @@ const Header = props => {
                       </Dropdown.Menu>
                     </Dropdown>
 
+                    <div className='d-inline-block'>
+                    <a href="/register" className="headerRow2 alignText landscape">Register</a>
+                            <a href="#loginform" className="headerRow2 alignText contentAlign"> Login</a>
+                    </div>
+
                     {/* {isLogin()} */}
 
                     {/* {allLgnVisible ? displayAllLanguage() : ''} */}
@@ -276,32 +307,8 @@ const Header = props => {
 
                     {/* <div className="topnav"><input autoFocus="" type="text" placeholder="Search.."/></div> */}
 
-                    <Form
-                      inline
-                      onSubmit={e => {
-                        // searchSubmit(e);
-                      }}
-                    >
-                      <FormControl
-                        id="portalSearch"
-                        // ref={searchBoxRef}
-                        // onClick={handleClickInside}
-                        type="text"
-                        // value="form"
-                        // value={searchTxt}
-                        placeholder={_lgn != null ? _lgn.search_within_portal : ''}
-                        // onChange={onSearchChange}
-                        // onKeyUp={detectSpacePresent}
-                        className="mr-sm-2 main-searchbar"
-                      />
-                      <i class="fa fa-search search-icon" aria-hidden="true"></i>
-                    </Form>
-                    <div className="searchResult" 
-                    // ref={myRef} 
-                    // onClick={handleClickInside}
-                    >
-                      {/* {clickedOutside ? '' : displaySearchResultBox(searchTxt, isSearchEnter)} */}
-                    </div>
+                    
+                    
                     {/* <div className="Speakerlogo">
                       <button className="Speakerlogo"
                         onClick={() => myFunction()}
@@ -318,9 +325,9 @@ const Header = props => {
                     <div>
                       {getHeight}
                     </div> */}
-                  </Col>
+                  </div>
                   {/* {fontSize()} */}
-                </Row>
+                </div>
             
                 
                 <Row className="domainrow hideMob " id="domainrow">
