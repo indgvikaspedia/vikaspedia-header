@@ -208,7 +208,7 @@ const Header = props => {
                     </div>
                   </div>
                   <div className="alignImage hideInput text-right">
-                    <div className="d-inline-block" style={{width:'150px'}}>
+                    <div className="d-inline-block" style={{width:'172px'}}>
                     <Form
                       onSubmit={e => {
                         // searchSubmit(e);
