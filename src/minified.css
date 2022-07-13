@@ -9248,6 +9248,7 @@ a.text-dark:hover {
 .domainrow {
   margin-top: -22px;
   max-height: 50px;
+  margin-left: 10px;
 }
 
 /*For Language bar*/
